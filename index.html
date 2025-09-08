@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GF SPARTA - Gimnasio de Entrenamiento Funcional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sparta-gold': '#FF8C00',
+                        'sparta-red': '#DC143C',
+                        'sparta-dark': '#1a1a1a',
+                        'sparta-gray': '#2d2d2d'
+                    },
+                    fontFamily: {
+                        'sparta': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(45, 45, 45, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="1000" height="1000" fill="url(%23grain)"/></svg>');
+            background-size: cover, 200px 200px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .sparta-gradient {
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            cursor: pointer;
+        }
+        
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-sparta-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-effect">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="h-10 w-auto mr-3">
+                    <span class="text-xs font-medium text-sparta-red">VERSIÓN FUNCIONAL WEB</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-sparta-gold transition-colors">Inicio</a>
+                    <a href="#servicios" class="hover:text-sparta-gold transition-colors">Servicios</a>
+                    <a href="#precios" class="hover:text-sparta-gold transition-colors">Precios</a>
+                    <a href="#galeria" class="hover:text-sparta-gold transition-colors">Galería</a>
+                    <a href="#contacto" class="hover:text-sparta-gold transition-colors">Contacto</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div class="floating text-center">
+                <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="mx-auto mb-6 max-w-xs md:max-w-md">
+                <h1 class="text-lg md:text-xl font-bold mb-8 text-sparta-red">
+                    CONQUISTANDO TU MEJOR VERSIÓN
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    Transforma tu cuerpo y mente con nuestro entrenamiento funcional personalizado
+                </p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-gradient-to-b from-sparta-dark to-sparta-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Nuestros <span class="sparta-gradient bg-clip-text text-transparent">Servicios</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Ofrecemos entrenamientos especializados adaptados a tus objetivos específicos
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Funcional -->
+                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
+                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-running text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Funcional</h3>
+                    <p class="text-gray-400 text-sm">Mejora tu capacidad de movimiento para actividades diarias</p>
+                </div>
+                
+                <!-- Funcional Intensivo -->
+                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
+                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fire text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Funcional Intensivo</h3>
+                    <p class="text-gray-400 text-sm">Entrena a máxima intensidad para resultados excepcionales</p>
+                </div>
+                
+                <!-- Fuerza -->
+                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
+                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dumbbell text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Fuerza</h3>
+                    <p class="text-gray-400 text-sm">Desarrolla potencia y resistencia muscular</p>
+                </div>
+                
+                <!-- GAP -->
+                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
+                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-target text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">GAP</h3>
+                    <p class="text-gray-400 text-sm">Glúteos, Abdominales y Piernas tonificados</p>
+                </div>
+                
+                <!-- Asesoramiento Externo -->
+                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
+                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Instalaciones Propias</h3>
+                    <p class="text-gray-400 text-sm">A convenir modalidad de asesoramiento externo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="py-20 bg-sparta-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="sparta-gradient bg-clip-text text-transparent">Planes</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Elige el plan que mejor se adapte a tus objetivos</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Plan Básico -->
+                <div class="bg-sparta-gray p-6 rounded-2xl border border-gray-700">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-2">Plan Básico</h3>
+                        <p class="text-gray-400 mb-4">2 veces por semana</p>
+                        <div class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent">
+                            $65.000
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Entrenamiento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            2 sesiones semanales
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Seguimiento de progreso
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20el%20Plan%20Básico" target="_blank" class="block w-full py-3 sparta-gradient text-black font-semibold rounded-xl hover:shadow-lg transition-all text-center">
+                        Consultar Plan
+                    </a>
+                </div>
+                
+                <!-- Plan Intermedio -->
+                <div class="bg-sparta-gray p-6 rounded-2xl border border-gray-700">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-2">Plan Intermedio</h3>
+                        <p class="text-gray-400 mb-4">3 veces por semana</p>
+                        <div class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent">
+                            $75.000
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Entrenamiento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            3 sesiones semanales
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Seguimiento nutricional
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20el%20Plan%20Intermedio" target="_blank" class="block w-full py-3 sparta-gradient text-black font-semibold rounded-xl hover:shadow-lg transition-all text-center">
+                        Consultar Plan
+                    </a>
+                </div>
+                
+                <!-- Plan Premium -->
+                <div class="bg-sparta-gray p-6 rounded-2xl border border-gray-700">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-2">Plan Premium</h3>
+                        <p class="text-gray-400 mb-4">4+ veces por semana</p>
+                        <div class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent">
+                            $85.000
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Entrenamiento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            4+ sesiones semanales
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Plan nutricional completo
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20el%20Plan%20Premium" target="_blank" class="block w-full py-3 sparta-gradient text-black font-semibold rounded-xl hover:shadow-lg transition-all text-center">
+                        Consultar Plan
+                    </a>
+                </div>
+
+                <!-- Plan Básico + Batido -->
+                <div class="bg-sparta-gray p-6 rounded-2xl border border-gray-700">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-2">Plan Básico Plus</h3>
+                        <p class="text-gray-400 mb-4">2 veces/semana + batido</p>
+                        <div class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent">
+                            $85.000
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Entrenamiento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            2 sesiones semanales
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-glass text-sparta-gold mr-3"></i>
+                            Batido proteico post-entreno
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20el%20Plan%20Básico%20Plus" target="_blank" class="block w-full py-3 sparta-gradient text-black font-semibold rounded-xl hover:shadow-lg transition-all text-center">
+                        Consultar Plan
+                    </a>
+                </div>
+
+                <!-- Plan Intermedio + Batido -->
+                <div class="bg-sparta-gray p-6 rounded-2xl border-2 border-sparta-gold relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 sparta-gradient px-6 py-2 rounded-full text-black font-semibold text-sm">
+                        MÁS POPULAR
+                    </div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-2">Plan Premium Plus</h3>
+                        <p class="text-gray-400 mb-4">3 veces/semana + batido</p>
+                        <div class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent">
+                            $100.000
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Entrenamiento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            3 sesiones semanales
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-glass text-sparta-gold mr-3"></i>
+                            Batido proteico post-entreno
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-check text-sparta-gold mr-3"></i>
+                            Seguimiento nutricional
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20el%20Plan%20Premium%20Plus" target="_blank" class="block w-full py-3 sparta-gradient text-black font-semibold rounded-xl hover:shadow-lg transition-all text-center">
+                        Consultar Plan
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Servicios adicionales -->
+            <div class="mt-16 grid md:grid-cols-2 gap-8">
+                <div class="text-center bg-sparta-gray p-6 rounded-xl">
+                    <i class="fas fa-utensils text-sparta-gold text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Nutrición</h4>
+                    <p class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent mb-2">$35.000</p>
+                    <p class="text-gray-400">Plan nutricional personalizado</p>
+                </div>
+                <div class="text-center bg-sparta-gray p-6 rounded-xl">
+                    <i class="fas fa-spa text-sparta-gold text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Drenaje Linfático</h4>
+                    <p class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent mb-2">$10.000</p>
+                    <p class="text-gray-400">Por sesión con botas</p>
+                </div>
+            </div>
+
+            <!-- Sección detallada de Suplementos -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">
+                        Línea de <span class="sparta-gradient bg-clip-text text-transparent">Suplementos</span>
+                    </h3>
+                    <a href="https://wa.me/542612525922?text=Hola%20Gastón,%20estoy%20interesado%20en%20los%20suplementos" target="_blank" class="inline-block sparta-gradient px-6 py-3 rounded-xl text-black font-semibold hover:shadow-lg transition-all">
+                        CONSULTAR
+                    </a>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Proteína Premium -->
+                    <div class="bg-sparta-gray p-6 rounded-xl text-center border border-gray-700 hover:border-sparta-gold transition-colors">
+                        <div class="sparta-gradient w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dumbbell text-black text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Proteína Premium</h4>
+                        <p class="text-gray-400 text-sm mb-4">Proteína de suero de alta calidad para máxima absorción</p>
+                        <div class="sparta-gradient bg-clip-text text-transparent font-bold">
+                            Línea Premium
+                        </div>
+                    </div>
+                    
+                    <!-- Creatina Premium -->
+                    <div class="bg-sparta-gray p-6 rounded-xl text-center border border-gray-700 hover:border-sparta-gold transition-colors">
+                        <div class="sparta-gradient w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bolt text-black text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Creatina Premium</h4>
+                        <p class="text-gray-400 text-sm mb-4">Aumenta fuerza y potencia muscular</p>
+                        <div class="sparta-gradient bg-clip-text text-transparent font-bold">
+                            Línea Premium
+                        </div>
+                    </div>
+                    
+                    <!-- Quemador Gold -->
+                    <div class="bg-sparta-gray p-6 rounded-xl text-center border border-gray-700 hover:border-sparta-gold transition-colors">
+                        <div class="sparta-gradient w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fire text-black text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Quemador Gold</h4>
+                        <p class="text-gray-400 text-sm mb-4">Acelera el metabolismo y la quema de grasa</p>
+                        <div class="sparta-gradient bg-clip-text text-transparent font-bold">
+                            Línea Gold
+                        </div>
+                    </div>
+                    
+                    <!-- Multivitamínico -->
+                    <div class="bg-sparta-gray p-6 rounded-xl text-center border border-gray-700 hover:border-sparta-gold transition-colors">
+                        <div class="sparta-gradient w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-seedling text-black text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Multivitamínico ENA</h4>
+                        <p class="text-gray-400 text-sm mb-4">Complejo vitamínico para salud integral</p>
+                        <div class="sparta-gradient bg-clip-text text-transparent font-bold">
+                            Línea ENA
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-20 bg-gradient-to-b from-sparta-gray to-sparta-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="sparta-gradient bg-clip-text text-transparent">Instalaciones</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Conoce el espacio donde transformarás tu cuerpo</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0005.jpg" alt="Entrenamiento funcional" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0009.jpg" alt="Equipos de gimnasio" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0010.jpg" alt="Kettlebells" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0011.jpg" alt="Área de entrenamiento" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden md:col-span-2 cursor-pointer">
+                    <img src="IMG-20250907-WA0012.jpg" alt="Instalaciones completas" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0013.jpg" alt="Zona de ejercicios" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
+                    <img src="IMG-20250907-WA0014.jpg" alt="Equipamiento profesional" class="w-full h-48 object-cover" onclick="openModal(this)">
+                </div>
+            </div>
+            
+            <!-- Modal para ampliar fotos -->
+            <div id="imageModal" class="modal" onclick="closeModal()">
+                <img id="modalImage" src="" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-sparta-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="sparta-gradient bg-clip-text text-transparent">Equipo</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Profesionales dedicados a tu transformación</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="text-center bg-sparta-gray p-8 rounded-2xl">
+                    <div class="w-32 h-32 sparta-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-female text-black text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Fernanda Nieto</h3>
+                    <p class="text-sparta-green font-semibold mb-4">Entrenadora Personal</p>
+                    <p class="text-gray-400">Especialista en entrenamiento funcional y desarrollo de fuerza. Comprometida con ayudarte a alcanzar tus objetivos.</p>
+                </div>
+                
+                <div class="text-center bg-sparta-gray p-8 rounded-2xl">
+                    <div class="w-32 h-32 sparta-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-male text-black text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Gastón Nebro</h3>
+                    <p class="text-sparta-green font-semibold mb-4">Entrenador Personal & Nutricionista</p>
+                    <p class="text-gray-400">Experto en entrenamiento personalizado y nutrición deportiva. Tu guía integral hacia un estilo de vida saludable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gradient-to-b from-sparta-dark to-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <p class="text-gray-400 text-lg">¿Listo para comenzar tu transformación?</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
+                                <i class="fab fa-whatsapp text-black text-lg"></i>
+                            </div>
+                            <p class="font-semibold text-sm mb-1">WhatsApp</p>
+                            <a href="https://wa.me/542612525922" target="_blank" class="text-sparta-gold hover:text-sparta-red transition-colors text-sm">
+                                +54 261 252 5922
+                            </a>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
+                                <i class="fab fa-instagram text-black text-lg"></i>
+                            </div>
+                            <p class="font-semibold text-sm mb-1">Instagram</p>
+                            <a href="https://instagram.com/gf.sparta" target="_blank" class="text-sparta-gold hover:text-sparta-red transition-colors text-sm">
+                                @gf.sparta
+                            </a>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-map-marker-alt text-black text-lg"></i>
+                            </div>
+                            <p class="font-semibold text-sm mb-1">Ubicación</p>
+                            <a href="https://maps.app.goo.gl/bYcpbQpixSFJcjaNA" target="_blank" class="text-sparta-gold hover:text-sparta-red transition-colors text-sm">
+                                Ver en Maps
+                            </a>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-clock text-black text-lg"></i>
+                            </div>
+                            <p class="font-semibold text-sm mb-1">Horarios</p>
+                            <p class="text-gray-300 text-xs">Lun-Vie: 8:00-20:00</p>
+                            <p class="text-gray-300 text-xs">Sáb: A convenir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-4">
+                <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="h-8 w-auto mr-2">
+                <span class="sparta-gradient bg-clip-text text-transparent text-2xl font-bold">GF SPARTA</span>
+            </div>
+            <p class="text-gray-400">
+                © 2025 GF SPARTA. Todos los derechos reservados. Transforma tu vida con nosotros.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Smooth scrolling script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.querySelector('button');
+        mobileMenuBtn?.addEventListener('click', function() {
+            // Add mobile menu functionality if needed
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black', 'bg-opacity-80');
+            } else {
+                nav.classList.remove('bg-black', 'bg-opacity-80');
+            }
+        });
+
+        // Modal functions for gallery
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
