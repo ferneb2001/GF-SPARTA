@@ -95,7 +95,7 @@
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="h-10 w-auto mr-3">
-                    <span class="text-xs font-medium text-sparta-red">VERSIÓN FUNCIONAL WEB</span>
+                    <span class="text-xs font-medium text-sparta-red">VERSIÓN FULL WEB</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#inicio" class="hover:text-sparta-gold transition-colors">Inicio</a>
@@ -104,9 +104,21 @@
                     <a href="#galeria" class="hover:text-sparta-gold transition-colors">Galería</a>
                     <a href="#contacto" class="hover:text-sparta-gold transition-colors">Contacto</a>
                 </div>
-                <button class="md:hidden text-white">
+                <button id="mobile-menu-btn" class="md:hidden text-white">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-95 py-4">
+                <div class="flex flex-col space-y-4 px-4">
+                    <a href="#inicio" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Inicio</a>
+                    <a href="#servicios" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Servicios</a>
+                    <a href="#precios" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Precios</a>
+                    <a href="#galeria" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Galería</a>
+                    <a href="#contacto" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Contacto</a>
+                </div>
+            </div>
             </div>
         </div>
     </nav>
@@ -485,21 +497,21 @@
             
             <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                 <div class="text-center bg-sparta-gray p-8 rounded-2xl">
-                    <div class="w-32 h-32 sparta-gradient rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-female text-black text-4xl"></i>
+                    <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sparta-gold">
+                        <img src="Fernanda Nieto.jpg" alt="Fernanda Nieto" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Fernanda Nieto</h3>
-                    <p class="text-sparta-green font-semibold mb-4">Entrenadora Personal</p>
+                    <p class="text-sparta-gold font-semibold mb-4">Entrenadora Personal</p>
                     <p class="text-gray-400">Especialista en entrenamiento funcional y desarrollo de fuerza. Comprometida con ayudarte a alcanzar tus objetivos.</p>
                 </div>
                 
                 <div class="text-center bg-sparta-gray p-8 rounded-2xl">
-                    <div class="w-32 h-32 sparta-gradient rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-male text-black text-4xl"></i>
+                    <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sparta-gold">
+                        <img src="Gastón Nebro.jpg" alt="Gastón Nebro" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Gastón Nebro</h3>
-                    <p class="text-sparta-green font-semibold mb-4">Entrenador Personal & Nutricionista</p>
-                    <p class="text-gray-400">Experto en entrenamiento personalizado y nutrición deportiva. Tu guía integral hacia un estilo de vida saludable.</p>
+                    <p class="text-sparta-gold font-semibold mb-4">Entrenador Personal</p>
+                    <p class="text-gray-400">Entrenamiento personalizado y nutrición deportiva. Tu guía integral hacia un estilo de vida saludable.</p>
                 </div>
             </div>
         </div>
@@ -550,7 +562,7 @@
                                 <i class="fas fa-clock text-black text-lg"></i>
                             </div>
                             <p class="font-semibold text-sm mb-1">Horarios</p>
-                            <p class="text-gray-300 text-xs">Lun-Vie: 8:00-20:00</p>
+                            <p class="text-gray-300 text-xs">Lun-Vie: 9:00-21:00</p>
                             <p class="text-gray-300 text-xs">Sáb: A convenir</p>
                         </div>
                     </div>
@@ -562,12 +574,11 @@
     <!-- Footer -->
     <footer class="bg-black py-8">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4">
-                <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="h-8 w-auto mr-2">
-                <span class="sparta-gradient bg-clip-text text-transparent text-2xl font-bold">GF SPARTA</span>
+            <div class="mb-4">
+                <img src="https://i.imgur.com/eYIyi1B.png" alt="Logo GF SPARTA" class="h-8 w-auto mx-auto">
             </div>
-            <p class="text-gray-400">
-                © 2025 GF SPARTA. Todos los derechos reservados. Transforma tu vida con nosotros.
+            <p class="text-gray-400 text-xs">
+                © 2025 GF SPARTA. Todos los derechos reservados.
             </p>
         </div>
     </footer>
@@ -588,10 +599,27 @@
             });
         });
 
-        // Mobile menu toggle (if needed)
-        const mobileMenuBtn = document.querySelector('button');
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
         mobileMenuBtn?.addEventListener('click', function() {
-            // Add mobile menu functionality if needed
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
 
         // Add scroll effect to navbar

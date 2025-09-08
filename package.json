@@ -1,0 +1,58 @@
+{
+  "name": "gf-sparta-gymnasium",
+  "version": "1.0.0",
+  "description": "Página web oficial del gimnasio GF SPARTA - Entrenamiento funcional personalizado",
+  "main": "index.html",
+  "scripts": {
+    "bugbot": "node instant-bugbot.js",
+    "test": "node test_bugbot_direct.js",
+    "health-check": "npm run bugbot",
+    "full-analysis": "npm run test && npm run bugbot",
+    "monitor": "npm run bugbot && echo '✅ Monitoreo completado - Revisa BITACORA_TECNICA_MONITOREO.md'",
+    "pre-deploy": "npm run full-analysis && echo '🚀 Listo para deploy'",
+    "post-update": "npm run monitor && echo '📊 Análisis post-actualización completado'",
+    "quick-check": "node -e \"console.log('🔍 Quick Check GF SPARTA:'); require('./instant-bugbot.js'); console.log('✅ Verificación rápida completada')\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferneb2001/GF-SPARTA.git"
+  },
+  "keywords": [
+    "gimnasio",
+    "entrenamiento-funcional",
+    "fitness",
+    "sparta",
+    "mendoza",
+    "personal-trainer",
+    "bugbot",
+    "monitoring"
+  ],
+  "author": "Fernando Nebro <ferneb2001@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ferneb2001/GF-SPARTA/issues"
+  },
+  "homepage": "https://ferneb2001.github.io/GF-SPARTA/",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "bugbot": {
+    "enabled": true,
+    "autoRun": [
+      "pre-commit",
+      "post-update",
+      "deploy"
+    ],
+    "criticalChecks": [
+      "html-structure",
+      "mobile-optimization",
+      "whatsapp-links",
+      "pricing-info",
+      "gallery-modal"
+    ],
+    "reportFormat": "markdown",
+    "saveBitacora": true
+  }
+}
