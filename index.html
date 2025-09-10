@@ -823,6 +823,10 @@
         let certificates = [];
         let currentRotation = 0;
         
+        // Touch support variables
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
         const certificateData = {
             'fernanda': [
                 'certificado.jpg',
@@ -870,16 +874,28 @@
                 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Add touch event listeners for mobile swipe
+                const certificateContainer = document.querySelector('.certificate-container');
+                certificateContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+                certificateContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+                certificateContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
             }
         }
 
         function closeCertificateModal(event) {
-            // Only close if clicking on the modal background, not the carousel content
-            if (event && event.target.id !== 'certificateModal') return;
-            
-            const modal = document.getElementById('certificateModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            // Only close if clicking specifically on the modal background
+            if (event && event.target.id === 'certificateModal') {
+                const modal = document.getElementById('certificateModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                // Remove touch event listeners
+                const certificateContainer = document.querySelector('.certificate-container');
+                certificateContainer.removeEventListener('touchstart', handleTouchStart);
+                certificateContainer.removeEventListener('touchmove', handleTouchMove);
+                certificateContainer.removeEventListener('touchend', handleTouchEnd);
+            }
         }
 
         function nextCertificate() {
@@ -916,6 +932,35 @@
             const image = document.getElementById('certificateImage');
             currentRotation = (currentRotation + 90) % 360;
             image.style.transform = `rotate(${currentRotation}deg)`;
+        }
+        
+        // Touch functions for mobile swipe
+        function handleTouchStart(e) {
+            touchStartX = e.touches[0].clientX;
+        }
+        
+        function handleTouchMove(e) {
+            e.preventDefault(); // Prevent default scrolling
+        }
+        
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        }
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance for a swipe
+            const swipeDistance = touchStartX - touchEndX;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe left - next certificate
+                    nextCertificate();
+                } else {
+                    // Swipe right - previous certificate
+                    prevCertificate();
+                }
+            }
         }
 
     </script>
