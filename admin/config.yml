@@ -1,0 +1,115 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+local_backend: true
+
+collections:
+  - name: "planes"
+    label: "Planes y Precios"
+    folder: "_data/planes"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Nombre del Plan", name: "title", widget: "string"}
+      - {label: "Frecuencia", name: "frequency", widget: "string", hint: "Ej: 2 veces por semana"}
+      - {label: "Precio", name: "price", widget: "number", hint: "Sin el signo $"}
+      - {label: "Destacado", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Características", name: "features", widget: "list", field: {label: "Característica", name: "feature", widget: "string"}}
+      - {label: "Orden", name: "order", widget: "number", hint: "Orden de aparición (1 primero, 2 segundo, etc)"}
+
+  - name: "clases_domicilio"
+    label: "Clases a Domicilio"
+    folder: "_data/clases_domicilio"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Frecuencia", name: "frequency", widget: "string", hint: "Ej: 2 veces por semana"}
+      - {label: "Precio", name: "price", widget: "number", hint: "Sin el signo $"}
+      - {label: "Orden", name: "order", widget: "number"}
+
+  - name: "programas_especializados"
+    label: "Programas Especializados"
+    folder: "_data/programas_especializados"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Nombre", name: "title", widget: "string"}
+      - {label: "Precio", name: "price", widget: "number", hint: "Sin el signo $"}
+      - {label: "Descripción", name: "description", widget: "string", required: false}
+
+  - name: "servicios_adicionales"
+    label: "Servicios Adicionales"
+    folder: "_data/servicios_adicionales"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Servicio", name: "title", widget: "string"}
+      - {label: "Precio", name: "price", widget: "number"}
+      - {label: "Descripción", name: "description", widget: "string"}
+      - {label: "Icono", name: "icon", widget: "string", hint: "Nombre del icono de FontAwesome (ej: utensils, spa)"}
+
+  - name: "transformaciones"
+    label: "Cambios Físicos Reales"
+    folder: "_data/transformaciones"
+    create: true
+    slug: "{{slug}}"
+    media_folder: "/cambios reales"
+    public_folder: "cambios reales"
+    editor:
+      preview: false
+    fields:
+      - {label: "Título", name: "title", widget: "string", required: false}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Frase Motivadora", name: "quote", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number"}
+
+  - name: "galeria"
+    label: "Galería de Instalaciones"
+    folder: "_data/galeria"
+    create: true
+    slug: "{{slug}}"
+    media_folder: "/"
+    public_folder: ""
+    editor:
+      preview: false
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Descripción", name: "alt", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number"}
+
+  - name: "configuracion"
+    label: "Configuración General"
+    files:
+      - name: "contacto"
+        label: "Información de Contacto"
+        file: "_data/configuracion/contacto.yml"
+        fields:
+          - {label: "WhatsApp", name: "whatsapp", widget: "string", hint: "Número con código de país, sin espacios ni guiones"}
+          - {label: "Instagram", name: "instagram", widget: "string", hint: "Solo el nombre de usuario, sin @"}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Dirección", name: "address", widget: "string"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+      
+      - name: "textos"
+        label: "Textos del Sitio"
+        file: "_data/configuracion/textos.yml"
+        fields:
+          - {label: "Slogan Principal", name: "slogan", widget: "string"}
+          - {label: "Subtítulo", name: "subtitle", widget: "text"}
+          - {label: "Título Cambios Físicos", name: "transformations_title", widget: "string"}
+          - {label: "Subtítulo Cambios Físicos", name: "transformations_subtitle", widget: "text"}
+          - {label: "Call to Action", name: "cta_text", widget: "string"}
+          - {label: "Botón CTA", name: "cta_button", widget: "string"}

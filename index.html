@@ -220,6 +220,8 @@
             }
         }
     </style>
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class="bg-sparta-dark text-white">
 
@@ -1114,6 +1116,19 @@
             }
         }
 
+    </script>
+
+    <!-- Netlify Identity Redirect -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
     </script>
 
 </body>
