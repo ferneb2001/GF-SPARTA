@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GF SPARTA - Gimnasio de Entrenamiento Funcional</title>
+
+    <!-- SEO -->
+    <meta name="description" content="GF SPARTA — Gimnasio de entrenamiento funcional en Mendoza. Planes personalizados: funcional, fuerza, GAP y nutrición. ¡Conquistá tu mejor versión!">
+    <meta name="keywords" content="gimnasio mendoza, entrenamiento funcional, entrenador personal mendoza, funcional intensivo, fuerza, GAP, nutrición deportiva, GF sparta">
+    <meta name="author" content="GF SPARTA">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gf-sparta.netlify.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GF SPARTA — Gimnasio de Entrenamiento Funcional | Mendoza">
+    <meta property="og:description" content="Entrenamiento funcional personalizado en Mendoza. Funcional, fuerza, GAP, nutrición y más. Conquistá tu mejor versión con GF SPARTA.">
+    <meta property="og:url" content="https://gf-sparta.netlify.app/">
+    <meta property="og:image" content="https://gf-sparta.netlify.app/IMG-20250907-WA0005.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GF SPARTA — Gimnasio de Entrenamiento Funcional">
+    <meta name="twitter:description" content="Entrenamiento funcional personalizado en Mendoza. Funcional, fuerza, GAP, nutrición y más.">
+    <meta name="twitter:image" content="https://gf-sparta.netlify.app/IMG-20250907-WA0005.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,7 +263,6 @@
                     <a href="#servicios" class="hover:text-sparta-gold transition-colors">Servicios</a>
                     <a href="#precios" class="hover:text-sparta-gold transition-colors">Planes</a>
                     <a href="#cambios" class="hover:text-sparta-gold transition-colors">Cambios Reales</a>
-                    <a href="#galeria" class="hover:text-sparta-gold transition-colors">Galería</a>
                     <a href="#contacto" class="hover:text-sparta-gold transition-colors">Contacto</a>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-white">
@@ -255,7 +277,6 @@
                     <a href="#servicios" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Servicios</a>
                     <a href="#precios" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Planes</a>
                     <a href="#cambios" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Cambios Reales</a>
-                    <a href="#galeria" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Galería</a>
                     <a href="#contacto" class="text-white hover:text-sparta-gold transition-colors py-2 mobile-menu-link">Contacto</a>
                 </div>
             </div>
@@ -286,12 +307,23 @@
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">
                     Nuestros <span class="sparta-gradient bg-clip-text text-transparent">Servicios</span>
                 </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Ofrecemos entrenamientos especializados adaptados a tus objetivos específicos
-                </p>
+                <div class="flex flex-wrap justify-center gap-3 mt-4">
+                    <span class="flex items-center gap-2 bg-sparta-gray border border-sparta-gold border-opacity-40 text-sparta-gold px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-dumbbell"></i> Rutinas personalizadas
+                    </span>
+                    <span class="flex items-center gap-2 bg-sparta-gray border border-sparta-gold border-opacity-40 text-sparta-gold px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-utensils"></i> Nutrición
+                    </span>
+                    <span class="flex items-center gap-2 bg-sparta-gray border border-sparta-gold border-opacity-40 text-sparta-gold px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-house-user"></i> Entrenamiento a domicilio
+                    </span>
+                    <span class="flex items-center gap-2 bg-sparta-gray border border-sparta-gold border-opacity-40 text-sparta-gold px-4 py-2 rounded-full text-sm font-semibold">
+                        <i class="fas fa-box-open"></i> Materiales propios
+                    </span>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 <!-- Funcional -->
                 <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
                     <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -328,14 +360,6 @@
                     <p class="text-gray-400 text-sm">Glúteos, Abdominales y Piernas tonificados</p>
                 </div>
                 
-                <!-- Asesoramiento Externo -->
-                <div class="service-card bg-sparta-gray p-6 rounded-2xl text-center hover:bg-opacity-80">
-                    <div class="sparta-gradient w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-home text-black text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-3">Instalaciones Propias</h3>
-                    <p class="text-gray-400 text-sm">A convenir modalidad de asesoramiento externo</p>
-                </div>
             </div>
         </div>
     </section>
@@ -573,18 +597,12 @@
             </div>
             
             <!-- Servicios adicionales -->
-            <div class="mt-16 grid md:grid-cols-2 gap-8">
-                <div class="text-center bg-sparta-gray p-6 rounded-xl">
+            <div class="mt-16 flex justify-center">
+                <div class="text-center bg-sparta-gray p-6 rounded-xl max-w-sm w-full">
                     <i class="fas fa-utensils text-sparta-gold text-3xl mb-4"></i>
                     <h4 class="text-xl font-bold mb-2">Nutrición</h4>
                     <p class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent mb-2">$35.000</p>
                     <p class="text-gray-400">Plan nutricional personalizado</p>
-                </div>
-                <div class="text-center bg-sparta-gray p-6 rounded-xl">
-                    <i class="fas fa-spa text-sparta-gold text-3xl mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">Drenaje Linfático</h4>
-                    <p class="text-3xl font-bold sparta-gradient bg-clip-text text-transparent mb-2">$10.000</p>
-                    <p class="text-gray-400">Por sesión con botas</p>
                 </div>
             </div>
 
@@ -728,97 +746,38 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="py-20 bg-gradient-to-b from-sparta-gray to-sparta-dark">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="sparta-gradient bg-clip-text text-transparent">Instalaciones</span>
-                </h2>
-                <p class="text-gray-400 text-lg">Conoce el espacio donde transformarás tu cuerpo</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="yo.jpg" alt="Entrenador Gastón" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0005.jpg" alt="Entrenamiento funcional" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0009.jpg" alt="Equipos de gimnasio" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0010.jpg" alt="Kettlebells" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0011.jpg" alt="Área de entrenamiento" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden md:col-span-2 cursor-pointer">
-                    <img src="IMG-20250907-WA0012.jpg" alt="Instalaciones completas" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0013.jpg" alt="Zona de ejercicios" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-                <div class="gallery-img rounded-xl overflow-hidden cursor-pointer">
-                    <img src="IMG-20250907-WA0014.jpg" alt="Equipamiento profesional" class="w-full h-48 object-cover" onclick="openModal(this)">
-                </div>
-            </div>
-            
-            <!-- Modal para ampliar fotos -->
-            <div id="imageModal" class="modal" onclick="closeModal()">
-                <img id="modalImage" src="" alt="">
-            </div>
-            
-            <!-- Modal para certificado -->
-            <div id="certificateModal" class="modal" onclick="closeCertificateModal(event)">
-                <div class="certificate-carousel" onclick="event.stopPropagation()">
-                    <button class="close-btn" onclick="closeCertificateModal({target: {id: 'certificateModal'}})" title="Cerrar">
-                        ×
+    <!-- Modal para ampliar fotos -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="">
+    </div>
+
+    <!-- Modal para certificado -->
+    <div id="certificateModal" class="modal" onclick="closeCertificateModal(event)">
+        <div class="certificate-carousel" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeCertificateModal({target: {id: 'certificateModal'}})" title="Cerrar">
+                ×
+            </button>
+            <button class="carousel-btn prev-btn" onclick="prevCertificate()">‹</button>
+            <div class="certificate-container">
+                <img id="certificateImage" src="" alt="Certificado" class="certificate-image-rotated" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+                <div class="certificate-controls">
+                    <button class="rotate-btn" onclick="rotateCertificate()" title="Rotar certificado">
+                        <i class="fas fa-redo"></i>
                     </button>
-                    <button class="carousel-btn prev-btn" onclick="prevCertificate()">‹</button>
-                    <div class="certificate-container">
-                        <img id="certificateImage" src="" alt="Certificado" class="certificate-image-rotated" style="max-width: 90%; max-height: 90%; object-fit: contain;">
-                        <div class="certificate-controls">
-                            <button class="rotate-btn" onclick="rotateCertificate()" title="Rotar certificado">
-                                <i class="fas fa-redo"></i>
-                            </button>
-                            <div class="certificate-counter">
-                                <span id="currentCert">1</span> / <span id="totalCerts">1</span>
-                            </div>
-                        </div>
+                    <div class="certificate-counter">
+                        <span id="currentCert">1</span> / <span id="totalCerts">1</span>
                     </div>
-                    <button class="carousel-btn next-btn" onclick="nextCertificate()">›</button>
                 </div>
             </div>
+            <button class="carousel-btn next-btn" onclick="nextCertificate()">›</button>
         </div>
-    </section>
+    </div>
 
     <!-- Team Section -->
     <section class="py-20 bg-sparta-dark">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="sparta-gradient bg-clip-text text-transparent">Equipo</span>
-                </h2>
-                <p class="text-gray-400 text-lg">Profesionales dedicados a tu transformación</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                <div class="text-center bg-sparta-gray p-8 rounded-2xl">
-                    <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sparta-gold">
-                        <img src="Fernanda Nieto.jpg" alt="Fernanda Nieto" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Fernanda Nieto</h3>
-                    <p class="text-sparta-gold font-semibold mb-4">Entrenadora Personal</p>
-                    <p class="text-gray-400 mb-4">Especialista en entrenamiento funcional y desarrollo de fuerza. Comprometida con ayudarte a alcanzar tus objetivos.</p>
-                    <button onclick="openCertificateCarousel('fernanda')" class="inline-flex items-center px-4 py-2 bg-sparta-gray border border-sparta-gold rounded-lg text-sparta-gold hover:bg-sparta-gold hover:text-black transition-all duration-300 text-sm">
-                        <i class="fas fa-certificate mr-2"></i>
-                        Ver Certificaciones
-                    </button>
-                </div>
-                
-                <div class="text-center bg-sparta-gray p-8 rounded-2xl">
+            <div class="flex justify-center max-w-4xl mx-auto">
+                <div class="text-center bg-sparta-gray p-8 rounded-2xl max-w-sm w-full">
                     <div class="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-sparta-gold">
                         <img src="Gastón Nebro.jpg" alt="Gastón Nebro" class="w-full h-full object-cover">
                     </div>
@@ -843,7 +802,7 @@
             
             <div class="max-w-4xl mx-auto">
                 <div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center max-w-2xl mx-auto">
                         <div class="flex flex-col items-center">
                             <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
                                 <i class="fab fa-whatsapp text-black text-lg"></i>
@@ -861,16 +820,6 @@
                             <p class="font-semibold text-sm mb-1">Instagram</p>
                             <a href="https://instagram.com/gf.sparta" target="_blank" class="text-sparta-gold hover:text-sparta-red transition-colors text-sm">
                                 @gf.sparta
-                            </a>
-                        </div>
-                        
-                        <div class="flex flex-col items-center">
-                            <div class="sparta-gradient w-12 h-12 rounded-full flex items-center justify-center mb-3">
-                                <i class="fas fa-map-marker-alt text-black text-lg"></i>
-                            </div>
-                            <p class="font-semibold text-sm mb-1">Ubicación</p>
-                            <a href="https://maps.app.goo.gl/bYcpbQpixSFJcjaNA" target="_blank" class="text-sparta-gold hover:text-sparta-red transition-colors text-sm">
-                                Ver en Maps
                             </a>
                         </div>
                         
@@ -1118,6 +1067,250 @@
             }
         }
 
+    </script>
+
+    <!-- Chatbot IA SPARTA -->
+    <style>
+        #sparta-chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 140, 0, 0.5);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #sparta-chat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(255, 140, 0, 0.7);
+        }
+        #sparta-chat-window {
+            display: none;
+            position: fixed;
+            bottom: 96px;
+            right: 24px;
+            width: 340px;
+            max-height: 500px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #sparta-chat-window.open { display: flex; }
+        #sparta-chat-header {
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #sparta-chat-header span { font-weight: 700; color: #000; font-size: 14px; font-family: 'Montserrat', sans-serif; }
+        #sparta-chat-close { background: none; border: none; color: #000; font-size: 20px; cursor: pointer; line-height: 1; }
+        #sparta-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 340px;
+        }
+        .sparta-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .sparta-msg.bot {
+            background: #2d2d2d;
+            color: #e0e0e0;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .sparta-msg.user {
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            color: #000;
+            font-weight: 600;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+        .sparta-msg.typing { color: #888; font-style: italic; }
+        #sparta-chat-input-area {
+            display: flex;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 10px;
+            gap: 8px;
+        }
+        #sparta-chat-input {
+            flex: 1;
+            background: #2d2d2d;
+            border: 1px solid rgba(255,140,0,0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+        }
+        #sparta-chat-input:focus { border-color: #FF8C00; }
+        #sparta-chat-send {
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+        #sparta-chat-send:hover { opacity: 0.85; }
+        @media (max-width: 400px) {
+            #sparta-chat-window { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
+        }
+    </style>
+
+    <button id="sparta-chat-btn" title="Chateá con SPARTA Bot" aria-label="Abrir chat">💬</button>
+
+    <div id="sparta-chat-window">
+        <div id="sparta-chat-header">
+            <span>⚡ SPARTA Bot</span>
+            <button id="sparta-chat-close" aria-label="Cerrar chat">×</button>
+        </div>
+        <div id="sparta-chat-messages"></div>
+        <div id="sparta-chat-input-area">
+            <input id="sparta-chat-input" type="text" placeholder="Escribí tu consulta..." autocomplete="off" />
+            <button id="sparta-chat-send">➤</button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const GEMINI_KEY = 'AIzaSyDMMeTY53Zf13ojtztYT6_pp2_4Fp1f5V8';
+        const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_KEY;
+        const WA_FALLBACK = 'https://wa.me/542612525922?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GF%20SPARTA';
+
+        const SYSTEM_PROMPT = `Sos el asistente virtual de GF SPARTA, gimnasio de entrenamiento funcional en Mendoza, Argentina. Tu nombre es "SPARTA Bot". Respondés de forma directa, breve y motivadora.
+
+EQUIPO:
+- Gastón Nebro: Entrenador Personal y Nutricionista
+
+SERVICIOS Y PRECIOS:
+- Plan Básico (2 veces/semana): $65.000
+- Plan Intermedio (3 veces/semana): $75.000
+- Plan Premium (4+ días/semana): $85.000
+- Plan Básico Plus (2 veces/semana + batido post-clase): $85.000
+- Plan Premium Plus (3 veces/semana + batido post-clase): $100.000
+- Consultoría nutricional: $35.000
+
+MODALIDADES: Funcional, Funcional Intensivo, Fuerza, GAP (Glúteos, Abdominales y Piernas)
+
+SUPLEMENTOS: Proteína premium, Creatina premium, Quemador de grasa gold, Multivitamínico ENA
+
+HORARIOS: Lunes a Viernes 9:00–21:00 / Sábados a convenir
+CONTACTO: WhatsApp +54 261 252 5922 | Instagram @gf.sparta
+
+REGLAS: Respondé en español rioplatense. Sé conciso (máx 3 oraciones). Para inscripción o consultas complejas, derivá al WhatsApp. No inventes datos.`;
+
+        const history = [];
+        const btn = document.getElementById('sparta-chat-btn');
+        const win = document.getElementById('sparta-chat-window');
+        const closeBtn = document.getElementById('sparta-chat-close');
+        const msgs = document.getElementById('sparta-chat-messages');
+        const input = document.getElementById('sparta-chat-input');
+        const send = document.getElementById('sparta-chat-send');
+        let opened = false;
+
+        function addMsg(text, role) {
+            const div = document.createElement('div');
+            div.className = 'sparta-msg ' + role;
+            div.textContent = text;
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+            return div;
+        }
+
+        function addTyping() {
+            return addMsg('Escribiendo...', 'bot typing');
+        }
+
+        async function sendMessage(userText) {
+            if (!userText.trim()) return;
+            addMsg(userText, 'user');
+            input.value = '';
+            input.disabled = true;
+            send.disabled = true;
+            const typingEl = addTyping();
+
+            history.push({ role: 'user', parts: [{ text: userText }] });
+
+            try {
+                const res = await fetch(GEMINI_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                        contents: history
+                    })
+                });
+                const data = await res.json();
+                typingEl.remove();
+
+                if (data.candidates && data.candidates[0]) {
+                    const reply = data.candidates[0].content.parts[0].text;
+                    addMsg(reply, 'bot');
+                    history.push({ role: 'model', parts: [{ text: reply }] });
+                } else {
+                    throw new Error('sin respuesta');
+                }
+            } catch (e) {
+                typingEl.remove();
+                const errDiv = addMsg('No puedo responder ahora. Escribinos por WhatsApp 👇', 'bot');
+                const link = document.createElement('a');
+                link.href = WA_FALLBACK;
+                link.target = '_blank';
+                link.style.cssText = 'display:block;margin-top:6px;color:#FF8C00;font-weight:700;text-decoration:none;font-size:12px;';
+                link.textContent = '💬 Ir a WhatsApp';
+                errDiv.appendChild(link);
+            } finally {
+                input.disabled = false;
+                send.disabled = false;
+                input.focus();
+            }
+        }
+
+        btn.addEventListener('click', function() {
+            win.classList.toggle('open');
+            if (!opened) {
+                opened = true;
+                addMsg('¡Hola! Soy SPARTA Bot 💪 ¿En qué puedo ayudarte? Consultame sobre planes, precios, horarios o el equipo.', 'bot');
+                setTimeout(() => input.focus(), 100);
+            }
+        });
+
+        closeBtn.addEventListener('click', function() { win.classList.remove('open'); });
+
+        send.addEventListener('click', function() { sendMessage(input.value); });
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') sendMessage(input.value);
+        });
+    })();
     </script>
 
     <!-- Netlify Identity Redirect -->
