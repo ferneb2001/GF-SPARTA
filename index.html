@@ -1201,8 +1201,7 @@
 
     <script>
     (function() {
-        const GEMINI_KEY = 'AIzaSyDMMeTY53Zf13ojtztYT6_pp2_4Fp1f5V8';
-        const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_KEY;
+        const WORKER_URL = 'https://esparta-gemini-proxy.ferneb2001.workers.dev';
         const WA_FALLBACK = 'https://wa.me/542612525922?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GF%20SPARTA';
 
         const SYSTEM_PROMPT = `Sos el asistente virtual de GF SPARTA, gimnasio de entrenamiento funcional en Mendoza, Argentina. Tu nombre es "SPARTA Bot". Respondés de forma directa, breve y motivadora.
@@ -1260,7 +1259,7 @@ REGLAS: Respondé en español rioplatense. Sé conciso (máx 3 oraciones). Para 
             history.push({ role: 'user', parts: [{ text: userText }] });
 
             try {
-                const res = await fetch(GEMINI_URL, {
+                const res = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
