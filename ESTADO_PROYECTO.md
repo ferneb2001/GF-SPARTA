@@ -149,18 +149,47 @@ Las tarjetas de promoción tienen los precios del distribuidor impresos en las i
 | Chatbot IA | ✅ Completo | Gemini 2.5 Flash |
 | Módulo PYMES FORCE | ✅ Completo | Video + flyer + nav |
 | Catálogo deportivo | ✅ Completo | Con buscador, filtros y WhatsApp |
-| Google Business Profile | ⏳ Incompleto | Creado pero sin verificar. Necesita videollamada con Google desde celular con cuenta gfsparta1996@gmail.com |
+| Google Business Profile | ⏳ Bloqueado | Ver detalle abajo |
 | Google Search Console | ✅ Verificado | Etiqueta HTML en index.html |
 | Solicitar indexación | ⏳ Pendiente | Cuota agotada el 20/05. Hacer desde Search Console: Inspección de URLs → pegar URL → "Solicitar indexación" |
 | Instagram — link en bio | ⏳ Pendiente | Agregar https://gf-sparta.netlify.app/ en bio de @gf.sparta |
 
 ---
 
+## GOOGLE BUSINESS PROFILE — PROBLEMA Y SOLUCIÓN
+
+### Situación al 21/05/2026
+- Hay **dos perfiles duplicados** de GF SPARTA en la cuenta `gfsparta1996@gmail.com`, ambos sin verificar
+- Se intentó crear un perfil nuevo desde cero con configuración correcta (servicio a domicilio, área de cobertura Mendoza, sin dirección pública)
+- La verificación por SMS está **bloqueada** — Google muestra error persistente "estamos teniendo algunos problemas"
+- Causa probable: `gfsparta1996@gmail.com` es una cuenta **Google Workspace (empresa)**, que tiene restricciones adicionales para verificar perfiles de negocio
+
+### Solución recomendada
+Crear el perfil de Google Business desde una **cuenta Gmail personal de Gastón** (no la de empresa). Con el Gmail de la señora de Fernando funcionó sin problemas.
+
+**Pasos:**
+1. Gastón abre su celular con una cuenta Gmail personal (o crea una nueva, ej: `gastonsparta@gmail.com`)
+2. Entra a business.google.com desde ese celular
+3. Crea el perfil con estos datos:
+   - Nombre: **GF SPARTA**
+   - Categoría: **Entrenador personal**
+   - Tipo: **Servicio a domicilio** (sin dirección física pública)
+   - Área de cobertura: **Mendoza**
+   - Teléfono: **2612525922**
+   - Sitio web: **https://gf-sparta.netlify.app/**
+   - Chat: **WhatsApp** → teléfono `2612525922`
+4. Verificación llega por SMS al celular de Gastón → ingresa el código → listo
+
+### Por qué es importante
+Sin perfil verificado, GF SPARTA **no aparece en Google Maps** ni en búsquedas locales como "entrenador personal Mendoza" — que es uno de los canales más importantes para conseguir clientes nuevos.
+
+---
+
 ## TAREAS PENDIENTES INMEDIATAS
 
-1. **Search Console** → Inspección de URLs → `https://gf-sparta.netlify.app/` → "Solicitar indexación"
-2. **Instagram** @gf.sparta → Editar perfil → campo "Sitio web" → `https://gf-sparta.netlify.app/`
-3. **Google Business** → verificar con videollamada (escanear QR desde celular con cuenta del gym)
+1. **Google Business** → Gastón crea perfil desde Gmail personal en su celular (ver detalle arriba)
+2. **Search Console** → Inspección de URLs → `https://gf-sparta.netlify.app/` → "Solicitar indexación"
+3. **Instagram** @gf.sparta → Editar perfil → campo "Sitio web" → `https://gf-sparta.netlify.app/`
 
 ---
 
