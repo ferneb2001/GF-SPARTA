@@ -1,0 +1,115 @@
+ (async () => {
+    const catalog = {};
+
+    const getTabs = () => [...document.querySelectorAll('button')]
+      .filter(b => {
+        const text = b.innerText.trim();
+        return b.offsetParent && text.length > 0 && text !== 'Ver todos' &&
+               !text.toLowerCase().includes('ordenar') && text.length < 50;
+      });
+
+    const getProducts = () => {
+      return [...document.querySelectorAll('a[href*="/product/"]')].map(card => {
+        const texts = [...card.querySelectorAll('*')]
+          .filter(el => el.children.length === 0)
+          .map(el => el.innerText?.trim())
+          .filter(t => t && t.length > 1);
+        const price = texts.find(t => /^\$\s*[\d.,]+/.test(t));
+        const name = texts.find(t => t && !/^\$/.test(t) && t.length > 2);
+        const img = card.querySelector('img')?.src || '';
+        const finalName = name || card.querySelector('img')?.alt?.trim();
+        return finalName && price ? { name: finalName, price, img } : null;
+      }).filter(Boolean);
+    };
+
+    // Scroll lento y paciente — espera hasta que el conteo no cambie 3 veces seguidas
+    const scrollAll = async () => {
+      let stableCount = 0;
+      let lastCount = 0;
+      while (stableCount < 3) {
+        window.scrollTo(0, document.body.scrollHeight);
+        await new Promise(r => setTimeout(r, 2000)); // espera 2 segundos
+        const current = document.querySelectorAll('a[href*="/product/"]').length;
+        if (current === lastCount) {
+          stableCount++;
+        } else {
+          stableCount = 0;
+          lastCount = current;
+        }
+      }
+      console.log(`  → ${lastCount} productos cargados`);
+    };
+
+    for (const tab of getTabs()) {
+      const name = tab.innerText.trim();
+      console.log(`Procesando: ${name}...`);
+      tab.click();
+      await new Promise(r => setTimeout(r, 3000)); // espera 3s después del click
+      window.scrollTo(0, 0);
+      await new Promise(r => setTimeout(r, 1000));
+      await scrollAll();
+      catalog[name] = getProducts();
+      console.log(`  ✓ ${catalog[name].length} productos extraídos`);
+      window.scrollTo(0, 0);
+      await new Promise(r => setTimeout(r, 1000));
+    }
+
+    const parsePrice = s => parseInt(s.replace(/[^\d]/g, ''), 10);
+    const formatPrice = n => '$ ' + Math.round(n).toLocaleString('es-AR');
+
+    const sections = Object.entries(catalog)
+      .filter(([, items]) => items.length > 0)
+      .map(([cat, items]) => {
+        const cards = items.map(p => {
+          const precio = formatPrice(parsePrice(p.price) * 1.5);
+          return `<div class="card">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+            <div class="info">
+              <p class="name">${p.name}</p>
+              <p class="price">${precio}</p>
+            </div>
+          </div>`;
+        }).join('');
+        return `<section><h2>${cat} (${items.length})</h2><div class="grid">${cards}</div></section>`;
+      }).join('');
+
+    const html = `<!DOCTYPE html>
+  <html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo GF SPARTA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#1a1a1a;color:#fff;font-family:'Montserrat',sans-serif;padding:24px}
+    .header{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:40px}
+    .header img{height:80px;width:auto}
+    h1{text-align:center;color:#FF8C00;font-size:2rem;font-weight:900;letter-spacing:2px}
+    section{margin-bottom:50px}
+    h2{color:#FF8C00;font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding-bottom:8px;bor
+  der-bottom:2px solid #FF8C00;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+    .card{background:#2d2d2d;border-radius:12px;overflow:hidden;border:1px solid rgba(255,140,0,0.2)}
+    .card img{width:100%;height:150px;object-fit:cover;background:#111}
+    .info{padding:10px}
+    .name{font-size:10px;color:#aaa;text-transform:uppercase;line-height:1.4;margin-bottom:6px}
+    .price{font-size:17px;font-weight:900;color:#FF8C00}
+  </style>
+  </head>
+  <body>
+  <div class="header">
+    <img src="../logo.jpeg" alt="GF SPARTA">
+    <h1>CATÁLOGO GF SPARTA</h1>
+  </div>
+  ${sections}
+  </body>
+  </html>`;
+
+    const blob = new Blob([html], {type:'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'catalogo-gf-sparta.html';
+    a.click();
+    alert(`✅ Listo! ${Object.values(catalog).reduce((a,b) => a + b.length, 0)} productos totales.`);
+  })();

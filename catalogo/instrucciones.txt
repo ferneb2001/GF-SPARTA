@@ -1,0 +1,10 @@
+El flujo mensual completo:
+
+  1. Abrís https://catalogo.treinta.co/fulltraining
+  2. Scrolleás manualmente la pestaña Suplementos de arriba a abajo (limitación de esa página)
+  3. F12 → pestaña Console
+  4. Abrís el archivo script-escaneo-catalogo.js con el Bloc de notas, seleccionás todo, copiás y pegás en la consola
+  5. Esperás que termine (varios minutos — va pestaña por pestaña)
+  6. Se descarga automáticamente catalogo-gf-sparta.html ya completo con: buscador, filtros, links de WhatsApp, botón
+  volver — sin ningún paso extra
+  7. Reemplazás el archivo en la carpeta catalogo/ y commitéas
